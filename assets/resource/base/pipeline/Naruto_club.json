@@ -1321,7 +1321,12 @@
         "pre_delay": 0,
         "action": "Click",
         "post_wait_freezes": 300,
-        "post_delay": 0
+        "post_delay": 0,
+        "next": [
+            "naruto_club_in_loop_wheel",
+            "club_first_award_done",
+            "close_naruto_club"
+        ]
     },
     "naruto_club_in_loop_wheel": {
         "recognition": "TemplateMatch",
@@ -1388,7 +1393,7 @@
         "action": "Click",
         "post_wait_freezes": 300,
         "post_delay": 0,
-        "timeout": 2000,
+        "timeout": 5000,
         "next": [
             "[JumpBack]roger_club_second_award",
             "confirm_club_second_award",
@@ -1489,6 +1494,7 @@
         "next": [
             "third_award_lock",
             "confirm_club_third_award",
+            "roger_club_third_award",
             "club_third_award",
             "club_third_award_done"
         ],
