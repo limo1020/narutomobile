@@ -1066,14 +1066,14 @@
         }
     },
     "check_club_all_submit": {
-        "max_hit": 5,
+        "max_hit": 30,
         "recognition": "TemplateMatch",
         "template": "Naruto_club/mission_submit.png",
         "threshold": 0.8,
         "inverse": true,
-        "pre_delay": 0,
+        "pre_delay": 1500,
         "post_delay": 300,
-        "timeout": 10000,
+        "timeout": 20000,
         "next": [
             "[JumpBack]naruto_club_duplicate_claim",
             "[JumpBack]submit_lag",
@@ -1119,8 +1119,8 @@
         "pre_wait_freezes": 300,
         "pre_delay": 0,
         "action": "Click",
-        "post_wait_freezes": 600,
-        "post_delay": 0
+        "post_wait_freezes": 1500,
+        "post_delay": 500
     },
     "submit_lag": {
         "recognition": "ColorMatch",
@@ -1333,10 +1333,18 @@
         ],
         "template": "Naruto_club/loop_wheel.png",
         "pre_delay": 0,
-        "post_delay": 0,
-        "next": "naruto_club_skip_loop",
+        "post_delay": 10000,
+        "next": [
+            "[JumpBack]roger_club_first_award",
+            "club_first_award_done",
+            "close_naruto_club",
+            "naruto_club_skip_loop"
+        ],
+        "on_error": [
+            "back_main_screen_and_stop"
+        ],
         "focus": {
-            "Node.Action.Starting": "<font color=\"DarkGoldenRod\">意志坚定</font>"
+            "Node.Action.Starting": "<font color=\"DarkGoldenRod\">等待40档奖励自动抽取完成</font>"
         }
     },
     "club_second_award": {
