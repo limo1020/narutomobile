@@ -148,6 +148,7 @@
         "repeat_delay": 100,
         "post_delay": 2000,
         "next": [
+            "vivo_dual_app_chooser",
             "ninja_book_share_to_qq",
             "ninja_book_share_back_to_natuto",
             "close_ninja_book_qq_share"

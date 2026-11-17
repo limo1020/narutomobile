@@ -159,6 +159,7 @@
                 "try_share_to_qq": {
                     "post_delay": "{等待时间}",
                     "next": [
+                        "vivo_dual_app_chooser",
                         "share_back_to_natuto",
                         "close_qq_app"
                     ]
@@ -180,6 +181,7 @@
                 "ninja_book_share_to_qq": {
                     "post_delay": "{等待时间}",
                     "next": [
+                        "vivo_dual_app_chooser",
                         "ninja_book_share_back_to_natuto",
                         "close_ninja_book_qq_share"
                     ]

@@ -225,12 +225,59 @@
         "repeat_delay": 100,
         "post_delay": 700,
         "next": [
+            "vivo_dual_app_chooser",
             "try_share_to_qq",
             "share_back_to_natuto",
             "close_qq_app"
         ],
         "focus": {
             "Node.Action.Starting": "<font color=\"DeepSkyBlue\">qq分享</font>"
+        }
+    },
+    "vivo_dual_app_chooser": {
+        "max_hit": 3,
+        "recognition": "OCR",
+        "roi": [
+            380,
+            340,
+            520,
+            200
+        ],
+        "expected": [
+            "选择要使用的应用"
+        ],
+        "pre_delay": 200,
+        "action": "ClickKey",
+        "key": 4,
+        "post_wait_freezes": 300,
+        "post_delay": 800,
+        "next": [
+            "vivo_dual_app_chooser",
+            "vivo_dual_app_chooser_unblock"
+        ],
+        "focus": {
+            "Node.Action.Starting": "<font color=\"DeepSkyBlue\">返回并关闭 vivo 应用分身选择器</font>"
+        }
+    },
+    "vivo_dual_app_chooser_unblock": {
+        "action": "Click",
+        "target": [
+            640,
+            160,
+            1,
+            1
+        ],
+        "post_wait_freezes": 300,
+        "post_delay": 1000,
+        "next": [
+            "share_quit_x",
+            "share_in_main_screen",
+            "close_share_top_bar",
+            "share_without_x",
+            "back_main_screen_and_stop"
+        ],
+        "focus": {
+            "Node.Action.Starting": "<font color=\"DeepSkyBlue\">点击游戏空白处解除分享卡住状态</font>"
         }
     },
     "share_back_to_natuto": {
