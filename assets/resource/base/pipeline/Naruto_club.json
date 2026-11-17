@@ -1243,16 +1243,12 @@
         "pre_wait_freezes": 300,
         "pre_delay": 0,
         "action": "Click",
-        "post_wait_freezes": 300,
-        "post_delay": 0,
+        "post_wait_freezes": 600,
+        "post_delay": 800,
         "timeout": 10000,
         "next": [
             "first_award_lock",
-            "confirm_club_first_award",
-            "roger_club_first_award",
-            "club_first_award_done",
-            "club_first_award",
-            "naruto_club_in_loop_wheel"
+            "wait_club_first_award_popup"
         ],
         "focus": {
             "Node.Action.Starting": "<font color=\"DeepSkyBlue\">领取第一个奖励</font>"
@@ -1272,15 +1268,31 @@
         "pre_wait_freezes": 300,
         "pre_delay": 0,
         "action": "Click",
-        "post_wait_freezes": 300,
-        "post_delay": 0,
+        "post_wait_freezes": 600,
+        "post_delay": 800,
         "timeout": 10000,
         "next": [
-            "confirm_club_first_award",
-            "naruto_club_in_loop_wheel"
+            "wait_club_first_award_popup"
         ],
         "focus": {
             "Node.Action.Starting": "<font color=\"DeepSkyBlue\">第二次领取第一个奖励</font>"
+        }
+    },
+    "wait_club_first_award_popup": {
+        "max_hit": 30,
+        "pre_delay": 250,
+        "post_delay": 250,
+        "next": [
+            "confirm_club_first_award",
+            "roger_club_first_award",
+            "wait_club_first_award_popup"
+        ],
+        "on_error": [
+            "naruto_club_in_loop_wheel",
+            "club_first_award_done"
+        ],
+        "focus": {
+            "Node.Action.Starting": "<font color=\"DeepSkyBlue\">等待第一档奖励弹窗</font>"
         }
     },
     "confirm_club_first_award": {
@@ -1296,12 +1308,13 @@
         ],
         "pre_delay": 0,
         "action": "Click",
-        "post_delay": 300,
+        "post_wait_freezes": 600,
+        "post_delay": 1200,
         "timeout": 10000,
         "next": [
-            "[JumpBack]roger_club_first_award",
-            "club_first_award_done",
-            "naruto_club_in_loop_wheel"
+            "roger_club_first_award",
+            "naruto_club_in_loop_wheel",
+            "club_first_award_done"
         ],
         "focus": {
             "Node.Action.Starting": "<font color=\"DeepSkyBlue\">确认领取第一个奖励</font>"
@@ -1320,8 +1333,8 @@
         ],
         "pre_delay": 0,
         "action": "Click",
-        "post_wait_freezes": 300,
-        "post_delay": 0,
+        "post_wait_freezes": 600,
+        "post_delay": 1200,
         "next": [
             "naruto_club_in_loop_wheel",
             "club_first_award_done",
@@ -1364,18 +1377,32 @@
         "template": "Naruto_club/second_award.png",
         "pre_delay": 0,
         "action": "Click",
-        "post_wait_freezes": 300,
-        "post_delay": 0,
+        "post_wait_freezes": 600,
+        "post_delay": 800,
         "timeout": 15000,
         "next": [
             "second_award_lock",
-            "confirm_club_second_award",
-            "club_second_award",
-            "club_second_award_done"
+            "wait_club_second_award_popup"
         ],
         "on_error": "award_kale",
         "focus": {
             "Node.Action.Starting": "<font color=\"DeepSkyBlue\">领取第二个奖励</font>"
+        }
+    },
+    "wait_club_second_award_popup": {
+        "max_hit": 30,
+        "pre_delay": 250,
+        "post_delay": 250,
+        "next": [
+            "confirm_club_second_award",
+            "roger_club_second_award",
+            "wait_club_second_award_popup"
+        ],
+        "on_error": [
+            "club_second_award_done"
+        ],
+        "focus": {
+            "Node.Action.Starting": "<font color=\"DeepSkyBlue\">等待第二档奖励弹窗</font>"
         }
     },
     "confirm_club_second_award": {
@@ -1391,18 +1418,12 @@
         ],
         "pre_delay": 0,
         "action": "Click",
-        "post_wait_freezes": 300,
-        "post_delay": 0,
+        "post_wait_freezes": 600,
+        "post_delay": 1200,
         "timeout": 5000,
         "next": [
-            "[JumpBack]roger_club_second_award",
-            "confirm_club_second_award",
+            "roger_club_second_award",
             "club_second_award_done"
-        ],
-        "on_error": [
-            "club_first_award",
-            "club_first_award_done",
-            "[JumpBack]club_first_award_on_error"
         ],
         "focus": {
             "Node.Action.Starting": "<font color=\"DeepSkyBlue\">确认领取第二个奖励</font>"
@@ -1421,8 +1442,11 @@
         ],
         "pre_delay": 0,
         "action": "Click",
-        "post_wait_freezes": 300,
-        "post_delay": 0
+        "post_wait_freezes": 600,
+        "post_delay": 1200,
+        "next": [
+            "club_second_award_done"
+        ]
     },
     "club_second_award_done": {
         "recognition": "Or",
@@ -1454,7 +1478,7 @@
         "pre_delay": 0,
         "post_wait_freezes": 300,
         "post_delay": 0,
-        "timeout": 2000,
+        "timeout": 8000,
         "next": [
             "club_first_award",
             "club_first_award_done",
@@ -1488,19 +1512,32 @@
         "threshold": 0.75,
         "pre_delay": 0,
         "action": "Click",
-        "post_wait_freezes": 300,
-        "post_delay": 0,
+        "post_wait_freezes": 600,
+        "post_delay": 800,
         "timeout": 5000,
         "next": [
             "third_award_lock",
-            "confirm_club_third_award",
-            "roger_club_third_award",
-            "club_third_award",
-            "club_third_award_done"
+            "wait_club_third_award_popup"
         ],
         "on_error": ["no_third_award"],
         "focus": {
             "Node.Action.Starting": "<font color=\"DeepSkyBlue\">领取第三个奖励</font>"
+        }
+    },
+    "wait_club_third_award_popup": {
+        "max_hit": 30,
+        "pre_delay": 250,
+        "post_delay": 250,
+        "next": [
+            "confirm_club_third_award",
+            "roger_club_third_award",
+            "wait_club_third_award_popup"
+        ],
+        "on_error": [
+            "club_third_award_done"
+        ],
+        "focus": {
+            "Node.Action.Starting": "<font color=\"DeepSkyBlue\">等待第三档奖励弹窗</font>"
         }
     },
     "third_award_lock": {
@@ -1561,11 +1598,10 @@
         ],
         "pre_delay": 0,
         "action": "Click",
-        "post_wait_freezes": 300,
-        "post_delay": 0,
+        "post_wait_freezes": 600,
+        "post_delay": 1200,
         "next": [
-            "[JumpBack]roger_club_third_award",
-            "confirm_club_third_award",
+            "roger_club_third_award",
             "club_third_award_done"
         ],
         "focus": {
@@ -1585,11 +1621,10 @@
         ],
         "pre_delay": 0,
         "action": "Click",
-        "post_wait_freezes": 300,
-        "post_delay": 0,
+        "post_wait_freezes": 600,
+        "post_delay": 1200,
         "next": [
-            "club_third_award_done",
-            "roger_club_third_award"
+            "club_third_award_done"
         ]
     },
     "club_third_award_done": {

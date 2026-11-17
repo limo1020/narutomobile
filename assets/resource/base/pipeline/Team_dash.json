@@ -726,9 +726,9 @@
                 "recognition": "TemplateMatch",
                 "roi": [
                     0,
-                    0,
-                    140,
-                    103
+                    190,
+                    180,
+                    150
                 ],
                 "template": "Practice_place/auto_battle.png",
                 "green_mask": true,
@@ -739,9 +739,9 @@
                 "recognition": "TemplateMatch",
                 "roi": [
                     0,
-                    0,
-                    140,
-                    103
+                    190,
+                    180,
+                    150
                 ],
                 "template": "SharedNode/auto_fight_button.png",
                 "green_mask": true,
@@ -751,23 +751,18 @@
                 "sub_name": "文字",
                 "recognition": "OCR",
                 "roi": [
-                    44,
-                    56,
-                    72,
-                    42
+                    15,
+                    240,
+                    150,
+                    80
                 ],
                 "expected": "自动"
             }
         ],
         "pre_delay": 200,
         "action": "Click",
-        "target": [
-            29,
-            229,
-            32,
-            22
-        ],
-        "post_delay": 500,
+        "post_wait_freezes": 500,
+        "post_delay": 1000,
         "next": [
             "team_dash_in_auto_battle",
             "check_not_in_team_dash_sweep",
@@ -777,7 +772,7 @@
         "focus": {
             "Node.Action.Starting": "开启自动战斗"
         },
-        "$doc": "好像老区没有默认开自动战斗"
+        "$doc": "关闭自动战斗时点击左侧自动按钮；识别区域覆盖图标和自动文字，点击识别结果中心"
     },
     "team_dash_sweep_win": {
         "recognition": "TemplateMatch",
